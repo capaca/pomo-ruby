@@ -12,6 +12,9 @@ class Window < Gtk::Window
     self.add panel
     self.show_all
     self.title = title
+    self.allow_grow = false
+    self.window_position = Gtk::Window::POS_CENTER_ALWAYS
+    self.icon = Gdk::Pixbuf.new "images/tomato.png"
 
     add_close_event
   end
@@ -21,7 +24,26 @@ class Window < Gtk::Window
     self.keep_above = false
   end
   
+  def show_warning_dialog message
+    dialog = create_warning_dialog message
+    dialog.run
+    dialog.destroy
+  end
+  
   private 
+  
+  def create_warning_dialog message
+    dialog = Gtk::MessageDialog.new(
+      self, 
+      Gtk::Dialog::MODAL,
+      Gtk::MessageDialog::WARNING,
+      Gtk::MessageDialog::BUTTONS_CLOSE,
+      message
+    )
+                                
+    dialog.window_position = Gtk::Window::POS_CENTER_ALWAYS
+    dialog
+  end
   
   def add_close_event
     self.signal_connect "destroy" do

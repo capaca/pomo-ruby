@@ -1,28 +1,19 @@
 class Timer
   
-  attr_reader :cycles
-  
   # Initialize de timer informing how much time it must take in SECONDS
-  def initialize duration, &block
+  def initialize duration
     @duration = duration
-    @after = block
-    @cycles = 0
   end
   
   def run
     @now = Time.now.to_i
     @future = @now + @duration
     
-    Thread.new do
-      while @now < @future
-        @now = Time.now.to_i
-        Window.instance.panel.progress_bar.fraction = fraction
-        Window.instance.panel.progress_bar.text = "Remaining time: #{remaining_time}"
-        sleep 1
-      end
-      
-      @after.call
-      @cycles += 1
+    while @now < @future
+      @now = Time.now.to_i
+      Window.instance.panel.progress_bar.fraction = fraction
+      Window.instance.panel.progress_bar.text = "Remaining time: #{remaining_time}"
+      sleep 1
     end
   end
   

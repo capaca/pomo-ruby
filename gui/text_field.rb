@@ -1,7 +1,7 @@
 class TextField < Gtk::HBox
   
   def initialize label_text, value
-    super(true)
+    super true, 10
     
     @label = Gtk::Label.new label_text
     @entry = Gtk::Entry.new
