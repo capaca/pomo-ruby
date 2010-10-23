@@ -14,7 +14,10 @@ class Window < Gtk::Window
     self.title = title
     self.allow_grow = false
     self.window_position = Gtk::Window::POS_CENTER_ALWAYS
-    self.icon = Gdk::Pixbuf.new "images/tomato.png"
+    
+    icon_path = File.dirname(__FILE__)+"/../images/tomato.png"
+    
+    self.icon = Gdk::Pixbuf.new icon_path
 
     add_close_event
   end

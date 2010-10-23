@@ -1,2 +1,2 @@
-window = Window.instance
-Gtk.main
+require 'rubygems'
+require 'pomo_ruby'
