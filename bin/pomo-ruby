@@ -1,0 +1,2 @@
+window = Window.instance
+Gtk.main

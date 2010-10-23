@@ -1,0 +1,7 @@
+=Install on Ubuntu
+
+sudo aptitude install libgtk2-ruby
+sudo gem install pomo-ruby
+
+=Running
+pomo-ruby
