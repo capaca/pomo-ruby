@@ -4,15 +4,21 @@ class Window < Gtk::Window
   
   attr_reader :panel
   
-  def initialize
+  def initialize title = "Pomo-ruby"
     super
     
     @panel = Panel.new
     
     self.add panel
     self.show_all
+    self.title = title
 
     add_close_event
+  end
+  
+  def pop_up
+    self.keep_above = true
+    self.keep_above = false
   end
   
   private 
