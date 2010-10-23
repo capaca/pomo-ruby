@@ -2,7 +2,7 @@
 Pomo-ruby is an standalone application written in Ruby/GTK with simple GUI to manage your time based on the Pomodoro technique.
 It was developed under the need of an application as such for GNU/Linux.
 
-=Install on Ubuntu
+=Install on Ubuntu / Linux
 
   sudo aptitude install libgtk2-ruby
   sudo gem install pomo-ruby
