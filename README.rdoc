@@ -4,8 +4,8 @@ It was developed under the need of an application as such for GNU/Linux.
 
 =Install on Ubuntu
 
-sudo aptitude install libgtk2-ruby
-sudo gem install pomo-ruby
+  sudo aptitude install libgtk2-ruby
+  sudo gem install pomo-ruby
 
 =Running
-pomo-ruby
+  pomo-ruby
