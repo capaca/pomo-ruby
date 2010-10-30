@@ -8,7 +8,10 @@ require 'gui/button_cancel'
 require 'gui/text_field'
 require 'gui/panel'
 require 'gui/window'
+require 'gui/tray_icon'
+require 'gui/tray_menu'
 require 'gui/progress_bar'
 
 window = Window.instance
+
 Gtk.main

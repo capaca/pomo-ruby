@@ -2,23 +2,26 @@ class Window < Gtk::Window
   
   include Singleton
   
+  ICON_PATH = File.dirname(__FILE__)+"/../images/tomato.png"
+  
   attr_reader :panel
   
   def initialize title = "Pomo-ruby"
     super
+
+    icon_image = Gdk::Pixbuf.new ICON_PATH
     
     @panel = Panel.new
     
+    self.icon = icon_image
     self.add panel
     self.show_all
     self.title = title
     self.allow_grow = false
     self.window_position = Gtk::Window::POS_CENTER_ALWAYS
     
-    icon_path = File.dirname(__FILE__)+"/../images/tomato.png"
+    TrayIcon.instance
     
-    self.icon = Gdk::Pixbuf.new icon_path
-
     add_close_event
   end
   
@@ -33,6 +36,10 @@ class Window < Gtk::Window
     dialog.destroy
   end
   
+  def toggle_visibility
+    self.visible? ? self.hide : self.show
+  end
+
   private 
   
   def create_warning_dialog message
@@ -49,9 +56,8 @@ class Window < Gtk::Window
   end
   
   def add_close_event
-    self.signal_connect "destroy" do
-      puts "Exiting pomo-ruby..."
-      Gtk.main_quit
+    self.signal_connect "delete_event" do
+      self.hide_on_delete
     end
   end  
   

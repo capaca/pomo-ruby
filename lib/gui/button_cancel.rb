@@ -11,7 +11,10 @@ class ButtonCancel < Gtk::Button
   
   def add_click_event
     self.signal_connect "clicked" do
-      Window.instance.panel.button_start.runner.stop
+      runner = Window.instance.panel.button_start.runner
+      if runner
+        runner.stop
+      end
     end
   end
 end

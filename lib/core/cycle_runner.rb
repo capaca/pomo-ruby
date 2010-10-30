@@ -34,7 +34,7 @@ class CycleRunner
   end
   
   def stop
-    @thread.kill
+    @thread.kill 
     Window.instance.panel.button_start.enable
     Window.instance.panel.progress_bar.text = "Canceled"
     Window.instance.panel.progress_bar.fraction = 0
