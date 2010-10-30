@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pomo-ruby}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pedro Dias"]
@@ -15,8 +15,7 @@ Gem::Specification.new do |s|
   s.email = %q{pedro.capaca@gmail.com}
   s.executables = ["pomo-ruby"]
   s.extra_rdoc_files = [
-    "README.rdoc",
-     "TODO"
+    "README.rdoc"
   ]
   s.files = [
     "README.rdoc",
@@ -35,7 +34,8 @@ Gem::Specification.new do |s|
      "lib/images/tomato.ico",
      "lib/images/tomato.jpg",
      "lib/images/tomato.png",
-     "lib/pomo_ruby.rb"
+     "lib/pomo_ruby.rb",
+     "pomo-ruby.gemspec"
   ]
   s.homepage = %q{http://github.com/capaca/pomo-ruby}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -48,9 +48,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<gtk2>, [">= 0.90.3"])
     else
+      s.add_dependency(%q<gtk2>, [">= 0.90.3"])
     end
   else
+    s.add_dependency(%q<gtk2>, [">= 0.90.3"])
   end
 end
 
